@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday ❤️</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+background:linear-gradient(-45deg,#ff416c,#ff4b2b,#ff6ec4,#7873f5);
+background-size:400% 400%;
+animation:bg 10s ease infinite;
+font-family:Tahoma;
+overflow:hidden;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+color:white;
+}
+
+@keyframes bg{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+.card{
+background:rgba(255,255,255,.15);
+backdrop-filter:blur(10px);
+padding:30px;
+border-radius:20px;
+max-width:700px;
+box-shadow:0 0 30px rgba(255,255,255,.3);
+z-index:2;
+}
+
+h1{
+font-size:45px;
+margin-bottom:15px;
+}
+
+#typing{
+font-size:24px;
+line-height:2;
+min-height:170px;
+}
+
+button{
+margin-top:25px;
+padding:15px 30px;
+font-size:20px;
+border:none;
+border-radius:50px;
+background:white;
+color:#ff2d55;
+cursor:pointer;
+font-weight:bold;
+transition:.3s;
+}
+
+button:hover{
+transform:scale(1.08);
+}
+
+.heart{
+position:absolute;
+color:#fff;
+animation:up linear forwards;
+}
+
+@keyframes up{
+0%{
+transform:translateY(100vh);
+opacity:0;
+}
+20%{
+opacity:1;
+}
+100%{
+transform:translateY(-120px);
+opacity:0;
+}
+}
+
+#surprise{
+display:none;
+font-size:35px;
+margin-top:25px;
+animation:pop 1s infinite alternate;
+}
+
+@keyframes pop{
+from{transform:scale(1);}
+to{transform:scale(1.08);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>🎂 Happy Birthday DODTY ❤️</h1>
+
+<h2>٢ / ٨ ❤️</h2>
+
+<div id="typing"></div>
+
+<button onclick="showLove()">🎁 اضغطي هنا يا أجمل قمرايه</button>
+
+<div id="surprise">
+❤️ بحبك اوي بجد ي نكديتي ❤️
+<br><br>
+اكتر واحده بتنكد عليا دلوقتي بس اكتر واحده هتبسطني بعدين وعايز اقول كلام كتير بجد علشان ده اول عيد ميلاد ليكي معايا وكان نفسي اغير فكرتك عن اليوم ده بس غصب عني بجد انتي فاهمه بس باذن الله اول عيد ميلاد واحنا مخطوبين هخليه احلى يوم ف حياتك بجد وكمان نفسي اوي كنتي تكوني قدامي علشان احضنك كده واخليكي ف حضني خالص بس هنوق اي حسبي الله ف شارعنا
+</div>
+
+</div>
+
+<script>
+
+const text=
+`كل سنة وإنتِ بخير يا أجمل بنت في الدنيا ❤️
+
+٢ / ٨ بالنسبة لأي حد مجرد تاريخ...
+لكن بالنسبة ليا هو أحلى يوم في الحياة،
+لأنه اليوم اللي اتولد فيه أجمل إنسانة شافتها عيني.
+
+ربنا يخليكي ليا،
+ويحققلك كل أحلامك،
+ويفضل الضحكة دي منورة حياتي دايمًا.
+
+أنا بحبك..وهفضل أحبك كل يوم أكتر من اللي قبله وكمان باذن الله السنه الجايه تكوني معايا بجد وتفضلي معايا طول العمر ي فراولتي. ❤️`;
+
+let i=0;
+
+function type(){
+if(i<text.length){
+document.getElementById("typing").innerHTML+=text.charAt(i);
+i++;
+setTimeout(type,55);
+}
+}
+
+type();
+
+function heart(){
+const h=document.createElement("div");
+h.className="heart";
+h.innerHTML="❤️";
+h.style.left=Math.random()*100+"vw";
+h.style.fontSize=(20+Math.random()*35)+"px";
+h.style.animationDuration=(3+Math.random()*4)+"s";
+document.body.appendChild(h);
+
+setTimeout(()=>{
+h.remove();
+},7000);
+}
+
+setInterval(heart,180);
+
+function showLove(){
+document.getElementById("surprise").style.display="block";
+confetti();
+}
+
+function confetti(){
+for(let i=0;i<150;i++){
+let c=document.createElement("div");
+c.innerHTML=["🎉","🎊","❤️","💖","🌹"][Math.floor(Math.random()*5)];
+c.style.position="absolute";
+c.style.left=Math.random()*100+"vw";
+c.style.top="-50px";
+c.style.fontSize=(20+Math.random()*20)+"px";
+c.style.transition="4s linear";
+document.body.appendChild(c);
+
+setTimeout(()=>{
+c.style.transform="translateY(120vh) rotate(720deg)";
+},50);
+
+setTimeout(()=>{
+c.remove();
+},4500);
+}
+}
+
+</script>
+
+</body>
+</html>
